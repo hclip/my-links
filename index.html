@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Director</title>
+    <script>
+        // Dictionary of your links
+        const links = {
+            "google": "https://www.google.com",
+            "studio": "https://aistudio.google.com",
+            "chat": "https://chatgpt.com"
+        };
+
+        // Check the URL for a 'go' parameter (e.g., ?go=google)
+        const urlParams = new URLSearchParams(window.location.search);
+        const target = urlParams.get('go');
+
+        if (target && links[target]) {
+            window.location.href = links[target];
+        }
+    </script>
+</head>
+<body>
+    <h1>My URL Director</h1>
+    <p>Use <code>?go=name</code> to redirect, or click below:</p>
+    <ul>
+        <li><a href="?go=google">Google</a></li>
+        <li><a href="?go=studio">AI Studio</a></li>
+    </ul>
+</body>
+</html>
